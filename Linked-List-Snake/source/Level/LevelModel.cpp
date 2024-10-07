@@ -2,28 +2,23 @@
 
 namespace Level
 {
-	LevelModel::LevelModel()
-	{
+	LevelModel::LevelModel() = default;
 
+	LevelModel::~LevelModel() = default;
+
+	void LevelModel::initialize(int width, int height)
+	{
+		cell_width = width / number_of_columns;
+		cell_height = height / number_of_rows;
 	}
 
-	LevelModel::~LevelModel()
+	float LevelModel::getCellWidth()
 	{
-
+		return cell_width;
 	}
 
-	void LevelModel::initialize()
+	float LevelModel::getCellHeight()
 	{
-
-	}
-
-	void LevelModel::update()
-	{
-
-	}
-
-	void LevelModel::render()
-	{
-
+		return cell_height;
 	}
 }
