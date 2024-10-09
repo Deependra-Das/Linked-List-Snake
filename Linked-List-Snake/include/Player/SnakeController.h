@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
+#include "LinkedList/SingleLinkedList.h"
 
 namespace Player
 {
@@ -17,6 +18,9 @@ namespace Player
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		const Direction default_direction = Direction::RIGHT;
 		Direction current_snake_direction;
+
+		LinkedList::SingleLinkedList* single_linked_list;
+		void createLinkedList();
 
 		SnakeState current_snake_state;
 		void processPlayerInput();
