@@ -20,6 +20,8 @@ namespace Player
 		Direction current_snake_direction;
 		float elapsed_duration;
 		const float movement_frame_duration = 0.1f;
+		const float restart_duration = 2.f;
+		float restart_counter;
 		LinkedList::SingleLinkedList* single_linked_list;
 		SnakeState current_snake_state;
 
