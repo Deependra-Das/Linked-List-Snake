@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
+#include "Element/ElementService.h"
+#include "Element/ElementData.h"
 #include "Level/LevelData.h"
 #include <vector>
 
@@ -9,9 +11,13 @@ namespace Level
     {
     private:
         std::vector<LevelData> level_configurations;
+        std::vector<Element::ElementData> level_one_element_list;
+        std::vector<Element::ElementData> level_two_element_list;
 
         float cell_width;
         float cell_height;
+
+        void initializeLevelData();
 
     public:
         static const int number_of_rows = 28;
@@ -24,5 +30,7 @@ namespace Level
 
         float getCellWidth();
         float getCellHeight();
+
+        const std::vector<Element::ElementData>& getElementDataList(int level_to_load);
     };
 }
