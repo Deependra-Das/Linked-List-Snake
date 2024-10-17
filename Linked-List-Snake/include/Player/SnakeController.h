@@ -2,6 +2,7 @@
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
 #include "LinkedList/SingleLinkedList.h"
+#include "Food/FoodType.h"
 
 namespace Player
 {
@@ -38,6 +39,10 @@ namespace Player
 		void updateSnakeDirection();
 		void moveSnake();
 		void processSnakeCollision();
+		void processBodyCollision();
+		void processElementsCollision();
+		void processFoodCollision();
+		void OnFoodCollected(Food::FoodType food_type);
 		void handleRestart();
 		void reset();
 		void delayedUpdate();
