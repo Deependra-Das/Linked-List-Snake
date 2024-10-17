@@ -40,6 +40,7 @@ namespace LinkedList
 		void updateNodePosition();
 		bool processNodeCollision();
 		void removeNodeAtHead();
+		void removeNodeAtTail();
 		void removeAllNodes();
 		void removeNodeAt(int index);
 		void removeNodeAtMiddle();
