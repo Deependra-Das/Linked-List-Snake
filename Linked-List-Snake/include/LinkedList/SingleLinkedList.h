@@ -45,10 +45,12 @@ namespace LinkedList
 		void removeNodeAt(int index);
 		void removeNodeAtMiddle();
 		void removeNodeAtIndex(int index);
+		void removeHalfNodes();
 		std::vector<sf::Vector2i> getNodesPositionList();
 		Node* getHeadNode();
 		sf::Vector2i getNewNodePosition(Node* reference_node, Operation operation);
 		void initializeNode(Node* new_node, Node* reference_node, Operation operation);
 		int findMiddleNode();
+		Node* findNodeAtIndex(int index);
 	};
 }
