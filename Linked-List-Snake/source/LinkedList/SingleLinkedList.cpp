@@ -152,9 +152,8 @@ namespace LinkedList
 
 	void SingleLinkedList::shiftNodesAfterRemoval(Node* cur_node)
 	{
+		sf::Vector2i previous_node_position = cur_node->body_part.getPosition();
 		Direction previous_node_direction = cur_node->body_part.getDirection();
-		sf::Vector2i previous_node_position = cur_node->body_part.getNextPosition();
-
 		cur_node = cur_node->next;
 
 		while (cur_node != nullptr)
@@ -168,7 +167,6 @@ namespace LinkedList
 			cur_node = cur_node->next;
 			previous_node_position = temp_node_position;
 			previous_node_direction = temp_node_direction;
-
 		}
 	}
 
@@ -262,9 +260,9 @@ namespace LinkedList
 
 	void SingleLinkedList::removeNodeAtIndex(int index)
 	{
+		int current_index = 0;
 		Node* cur_node = head_node;
 		Node* prev_node = nullptr;
-		int current_index = 0;
 
 		while (cur_node != nullptr && current_index < index)
 		{
@@ -272,7 +270,9 @@ namespace LinkedList
 			cur_node = cur_node->next;
 			current_index++;
 		}
+
 		prev_node->next = cur_node->next;
+
 		shiftNodesAfterRemoval(cur_node);
 		delete(cur_node);
 		linked_list_size--;
