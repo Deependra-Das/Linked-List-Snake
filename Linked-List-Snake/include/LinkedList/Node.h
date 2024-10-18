@@ -3,6 +3,8 @@
 
 namespace LinkedList
 {
+	using namespace Player;
+
 	struct Node
 	{
 		Player::BodyPart body_part;
