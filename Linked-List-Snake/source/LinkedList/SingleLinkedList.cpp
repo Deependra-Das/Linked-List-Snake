@@ -309,6 +309,7 @@ namespace LinkedList
 	{
 		if (head_node == nullptr)
 		{
+			insertNodeAtHead();
 			return;
 		}
 
