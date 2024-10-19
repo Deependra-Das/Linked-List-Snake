@@ -80,4 +80,9 @@ namespace Level
 	{
 		delete(level_controller);
 	}
+
+	LevelNumber LevelService::getCurrentLevel()
+	{
+		return current_level;
+	}
 }
