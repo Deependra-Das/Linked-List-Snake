@@ -79,7 +79,7 @@ namespace Global
 
 	void ServiceLocator::render()
 	{
-		ui_service->render();
+
 		graphic_service->render();
 
 		if (GameService::getGameState() == GameState::GAMEPLAY)
@@ -91,6 +91,7 @@ namespace Global
 
 		}
 	
+		ui_service->render();
 	}
 
 	void ServiceLocator::clearAllServices()
