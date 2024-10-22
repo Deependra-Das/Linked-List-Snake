@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
-#include "LinkedList/SingleLinkedList.h"
+#include "LinkedListLib/SingleLinked/SingleLinkedList.h"
 #include "Food/FoodType.h"
 
 namespace Player
@@ -51,7 +51,7 @@ namespace Player
 		const float restart_duration = 2.f;
 		float restart_counter;
 		int player_score;
-		LinkedList::SingleLinkedList* single_linked_list;
+		LinkedListLib::SingleLinked::SingleLinkedList* single_linked_list;
 		SnakeState current_snake_state;
 		InputState current_input_state;
 

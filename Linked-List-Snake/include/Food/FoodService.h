@@ -50,7 +50,7 @@ namespace Food
 		bool isValidPosition(std::vector<sf::Vector2i> position_data, sf::Vector2i food_position);
 		sf::Vector2i getValidSpawnPosition();
 		FoodType getRandomFoodType();
-		bool processFoodCollision(LinkedList::Node* head_node, FoodType& out_food_type);
+		bool processFoodCollision(LinkedListLib::Node* head_node, FoodType& out_food_type);
 		void destroyFood();
 	};
 }
