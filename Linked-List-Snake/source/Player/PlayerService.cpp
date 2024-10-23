@@ -67,4 +67,8 @@ namespace Player
 		return snake_controller->getLastOperation();
 	}
 
+	bool PlayerService::isPlayerDead()
+	{
+		return snake_controller->isSnakeDead();
+	}
 }
