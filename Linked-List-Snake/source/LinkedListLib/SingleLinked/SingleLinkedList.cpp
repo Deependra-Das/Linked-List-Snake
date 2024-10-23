@@ -147,7 +147,8 @@ namespace LinkedListLib
             delete (cur_node);
         }
 
-        void SingleLinkedList::removeNodeAtMiddle() {
+        void SingleLinkedList::removeNodeAtMiddle() 
+        {
             if (head_node == nullptr) return;
 
             int midIndex = findMiddleNode();
