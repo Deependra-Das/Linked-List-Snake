@@ -10,7 +10,7 @@ namespace LinkedListLib
 
         DoubleLinkedList::~DoubleLinkedList() = default;
 
-        Node* createNode()
+        Node* DoubleLinkedList::createNode()
         {
             return new DoubleNode();
         }
@@ -266,17 +266,25 @@ namespace LinkedListLib
 
         Direction DoubleLinkedList::reverse()
         {
+            Node* cur_node = head_node;
+            Node* prev_node = nullptr;
+            Node* next_node = nullptr;
 
+            while (cur_node != nullptr)
+            {
+                next_node = cur_node->next;
+                cur_node->next = prev_node;
+                static_cast<DoubleNode*>(cur_node)->previous = next_node;
+
+                prev_node = cur_node;
+                cur_node = next_node;
+            }
+
+            head_node = prev_node;
+
+            reverseNodeDirections();
+            return head_node->body_part.getDirection();
         }
 
-        void DoubleLinkedList::shiftNodesAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node)
-        {
-
-        }
-
-        void DoubleLinkedList::shiftNodesAfterRemoval(Node* cur_node)
-        {
-
-        }
     }
 }
