@@ -3,6 +3,7 @@
 #include "UI/Interface/IUIController.h"
 #include "UI/UIElement/ButtonView.h"
 #include "UI/UIElement/ImageView.h"
+#include "UI/UIElement/TextView.h"
 
 namespace UI
 {
@@ -11,6 +12,12 @@ namespace UI
 		class LevelSelectionUIController : public Interface::IUIController
 		{
 		private:
+			const sf::String game_title = "Select Level";
+
+			const float text_top_offset = 200.f;
+			const int font_size = 100;
+			const sf::Color text_color = sf::Color::White;
+
 			const float button_width = 400.f;
 			const float button_height = 140.f;
 
@@ -21,13 +28,15 @@ namespace UI
 			const float background_alpha = 85.f;
 
 			UI::UIElement::ImageView* background_image;
-
+			UIElement::TextView* title_text;
 			UI::UIElement::ButtonView* level_one_button;
 			UI::UIElement::ButtonView* level_two_button;
 			UI::UIElement::ButtonView* menu_button;
 
 			void createImage();
 			void createButtons();
+			void createText();
+			void initializeText();
 			void initializeBackgroundImage();
 			void initializeButtons();
 			void registerButtonCallback();

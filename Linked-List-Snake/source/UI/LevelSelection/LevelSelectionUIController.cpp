@@ -24,6 +24,7 @@ namespace UI
         {
             createButtons();
             createImage();
+            createText();
         }
 
         LevelSelectionUIController::~LevelSelectionUIController()
@@ -33,6 +34,7 @@ namespace UI
 
         void LevelSelectionUIController::initialize()
         {
+            initializeText();
             initializeBackgroundImage();
             initializeButtons();
             registerButtonCallback();
@@ -43,11 +45,22 @@ namespace UI
             background_image = new ImageView();
         }
 
+        void LevelSelectionUIController::createText()
+        {
+            title_text = new TextView();
+        }
+
         void LevelSelectionUIController::createButtons()
         {
             level_one_button = new ButtonView();
             level_two_button = new ButtonView();
             menu_button = new ButtonView();
+        }
+
+        void LevelSelectionUIController::initializeText()
+        {
+            title_text->initialize(game_title, sf::Vector2f(0, text_top_offset), FontType::BUBBLE_BOBBLE, font_size, text_color);
+            title_text->setTextCentreAligned();
         }
 
         void LevelSelectionUIController::initializeBackgroundImage()
@@ -103,6 +116,7 @@ namespace UI
 
         void LevelSelectionUIController::update()
         {
+            title_text->update();
             background_image->update();
             level_one_button->update();
             level_two_button->update();
@@ -111,6 +125,7 @@ namespace UI
 
         void LevelSelectionUIController::render()
         {
+            title_text->render();
             background_image->render();
             level_one_button->render();
             level_two_button->render();
@@ -119,6 +134,7 @@ namespace UI
 
         void LevelSelectionUIController::show()
         {
+            title_text->show();
             background_image->show();
             level_one_button->show();
             level_two_button->show();
@@ -127,6 +143,7 @@ namespace UI
 
         void LevelSelectionUIController::destroy()
         {
+            delete (title_text);
             delete (background_image);
             delete (level_one_button);
             delete (level_two_button);

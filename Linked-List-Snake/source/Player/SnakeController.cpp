@@ -53,6 +53,7 @@ namespace Player
 		float width = ServiceLocator::getInstance()->getLevelService()->getCellWidth();
 		float height = ServiceLocator::getInstance()->getLevelService()->getCellHeight();
 
+		reset();
 		linked_list->initialize(width, height, default_position, default_direction);
 	}
 

@@ -23,6 +23,7 @@ namespace UI
         {
             createButtons();
             createImage();
+            createText();
         }
 
         LinkedListSelectionUIController::~LinkedListSelectionUIController()
@@ -32,6 +33,7 @@ namespace UI
 
         void LinkedListSelectionUIController::initialize()
         {
+            initializeText();
             initializeBackgroundImage();
             initializeButtons();
             registerButtonCallback();
@@ -42,11 +44,22 @@ namespace UI
             background_image = new ImageView();
         }
 
+        void LinkedListSelectionUIController::createText()
+        {
+            title_text = new TextView();
+        }
+
         void LinkedListSelectionUIController::createButtons()
         {
             single_linked_list_button = new ButtonView();
             double_linked_list_button = new ButtonView();
             menu_button = new ButtonView();
+        }
+
+        void LinkedListSelectionUIController::initializeText()
+        {
+            title_text->initialize(game_title, sf::Vector2f(0, text_top_offset), FontType::BUBBLE_BOBBLE, font_size, text_color);
+            title_text->setTextCentreAligned();
         }
 
         void LinkedListSelectionUIController::initializeBackgroundImage()
@@ -101,6 +114,7 @@ namespace UI
 
         void LinkedListSelectionUIController::update()
         {
+            title_text->update();
             background_image->update();
             single_linked_list_button->update();
             double_linked_list_button->update();
@@ -109,6 +123,7 @@ namespace UI
 
         void LinkedListSelectionUIController::render()
         {
+            title_text->render();
             background_image->render();
             single_linked_list_button->render();
             double_linked_list_button->render();
@@ -117,6 +132,7 @@ namespace UI
 
         void LinkedListSelectionUIController::show()
         {
+            title_text->show();
             background_image->show();
             single_linked_list_button->show();
             double_linked_list_button->show();
@@ -125,6 +141,7 @@ namespace UI
 
         void LinkedListSelectionUIController::destroy()
         {
+            delete (title_text);
             delete (background_image);
             delete (single_linked_list_button);
             delete (double_linked_list_button);
