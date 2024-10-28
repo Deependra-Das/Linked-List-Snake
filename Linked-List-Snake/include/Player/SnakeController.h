@@ -1,11 +1,16 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
-#include "Direction.h"
-#include "LinkedList/SingleLinkedList.h"
+#include "LinkedListLib/Node.h"
+#include "LinkedListLib/LinkedList.h"
 #include "Food/FoodType.h"
+#include "Level/LevelConfig.h"
 
 namespace Player
 {
+	using namespace Level;
+	using namespace Food;
+	using namespace LinkedListLib;
+
 	enum class SnakeState
 	{
 		ALIVE,
@@ -51,14 +56,13 @@ namespace Player
 		const float restart_duration = 2.f;
 		float restart_counter;
 		int player_score;
-		LinkedList::SingleLinkedList* single_linked_list;
+		LinkedListLib::LinkedList* linked_list;
 		SnakeState current_snake_state;
 		InputState current_input_state;
 
 		TimeComplexity time_complexity;
 		LinkedListOperations last_linked_list_operation;
 
-		void createLinkedList();
 		void processPlayerInput();
 		void updateSnakeDirection();
 		void moveSnake();
@@ -77,12 +81,15 @@ namespace Player
 		~SnakeController();
 
 		void initialize();
+		void initializeLinkedList();
 		void update();
 		void render();
+		void createLinkedList(LinkedListType level_type);
 		void spawnSnake();
 		void respawnSnake();
 		void setSnakeState(SnakeState state);
 		SnakeState getSnakeState();
+		bool isSnakeDead();
 		std::vector<sf::Vector2i> getCurrentSnakePositionList();
 		int getPlayerScore();
 		TimeComplexity getTimeComplexity();

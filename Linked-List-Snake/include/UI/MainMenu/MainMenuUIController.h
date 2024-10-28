@@ -3,6 +3,7 @@
 #include "UI/Interface/IUIController.h"
 #include "UI/UIElement/ImageView.h"
 #include "UI/UIElement/ButtonView.h"
+#include "UI/UIElement/TextView.h"
 
 namespace UI
 {
@@ -12,6 +13,12 @@ namespace UI
 		{
 		private:
 			// Constants:
+			const sf::String game_title = "Snake 2D";
+
+			const float text_top_offset = 100.f;
+			const int font_size = 200;
+			const sf::Color text_color = sf::Color::White;
+
 			const float button_width = 400.f;
 			const float button_height = 140.f;
 
@@ -22,13 +29,15 @@ namespace UI
 			const float background_alpha = 85.f;
 
 			UIElement::ImageView* background_image;
-
+			UIElement::TextView* title_text;
 			UIElement::ButtonView* play_button;
 			UIElement::ButtonView* instructions_button;
 			UIElement::ButtonView* quit_button;
 
 			void createImage();
 			void createButtons();
+			void createText();
+			void initializeText();
 			void initializeBackgroundImage();
 			void initializeButtons();
 			void registerButtonCallback();
